@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from '../../../app/store'
-import { selectDecks } from '../decks-selectors'
 import { addDecksTC } from '../decks-thunks'
 import s from './AddNewPostForm.module.css'
 import { useForm } from 'react-hook-form'
@@ -12,6 +11,7 @@ export const AddNewDeckForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
@@ -21,7 +21,7 @@ export const AddNewDeckForm = () => {
   const dispatch = useAppDispatch()
 
   const onSubmit = (data: FormValues) => {
-    dispatch(addDecksTC(data))
+    dispatch(addDecksTC(data)).then(() => reset())
   }
 
   return (

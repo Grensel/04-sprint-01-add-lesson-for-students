@@ -2,7 +2,7 @@ import { Deck } from '../../decks-api.types'
 import s from './DeckItem.module.css'
 
 type DeckProps = {
-  deck: Deck // todo: fix
+  deck: Deck
 }
 
 const TEST_ACC_NAME = 'Nik-Kik-Shpink'
